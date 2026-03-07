@@ -109,7 +109,7 @@ sudo zypper addrepo https://download.opensuse.org/repositories/home:/AvengeMedia
 sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:R:autoCRAN/openSUSE_Tumbleweed/devel:languages:R:autoCRAN.repo
 sudo zypper refresh
 sudo zypper install dms docker docker-compose docker-compose-switch freerdp qt6ct
-flatpak install flathub com.bitwarden.desktop com.spotify.Client org.zotero.Zotero org.ferdium.Ferdium app.zen_browser.zen com.calibre_ebook.calibre org.onlyoffice.desktopeditors org.mozilla.Thunderbird com.borgbase.Vorta
+flatpak --user install flathub com.bitwarden.desktop com.spotify.Client org.zotero.Zotero org.ferdium.Ferdium app.zen_browser.zen com.calibre_ebook.calibre org.onlyoffice.desktopeditors org.mozilla.Thunderbird com.borgbase.Vorta
 cargo install --locked tree-sitter-cli
 opi vicinae
 systemctl --user enable vicinae --now
