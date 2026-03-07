@@ -92,7 +92,7 @@ sudo zypper addrepo https://download.opensuse.org/repositories/devel:/languages:
 ## Basic
 
 ```bash
-sudo zypper install neovim lazygit btop bat yazi zathura R-base R-base-devel rstudio solaar xwayland-satellite niri xdg-desktop-portal-gnome gnome-keyring xdg-desktop-portal-gtk polkit-kde-agent-6 steam distrobox taskwarrior fzf go juliaup udiskie ripgrep chezmoi clang https://github.com/TibixDev/winboat/releases/download/v0.9.0/winboat-0.9.0-x86_64.rpm http://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
+sudo zypper install neovim lazygit btop bat yazi zathura R-base solaar xwayland-satellite niri xdg-desktop-portal-gnome gnome-keyring xdg-desktop-portal-gtk polkit-kde-agent-6 steam distrobox taskwarrior fzf go juliaup udiskie ripgrep chezmoi clang https://github.com/TibixDev/winboat/releases/download/v0.9.0/winboat-0.9.0-x86_64.rpm http://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.rpm
 ```
 
 ## Rustup
