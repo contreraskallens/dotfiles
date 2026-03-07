@@ -85,7 +85,7 @@ fc-cache -f -r -v
 sudo zypper ref
 sudo zypper dup
 sudo zypper install git kitty neovim fish flatpak opi clang
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrep
+flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrep
 ```
 
 ## Basic
