@@ -86,7 +86,6 @@ sudo zypper ref
 sudo zypper dup
 sudo zypper install git kitty neovim fish flatpak opi clang
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrep
-sudo zypper addrepo https://download.opensuse.org/repositories/devel:/languages:/R:/released/openSUSE_Tumbleweed/ R-released
 ```
 
 ## Basic
