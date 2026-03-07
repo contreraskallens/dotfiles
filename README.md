@@ -105,6 +105,7 @@ rustup toolchain install nightly
 ## Less basic software
 
 ```bash
+sudo zypper addrepo https://download.opensuse.org/repositories/home:AvengeMedia:danklinux/openSUSE_Tumbleweed/home:AvengeMedia:danklinux.repo
 sudo zypper addrepo https://download.opensuse.org/repositories/home:/AvengeMedia:/dms/openSUSE_Tumbleweed/home:AvengeMedia:dms.repo
 sudo zypper addrepo https://download.opensuse.org/repositories/devel:languages:R:autoCRAN/openSUSE_Tumbleweed/devel:languages:R:autoCRAN.repo
 sudo zypper refresh
