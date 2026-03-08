@@ -1,0 +1,73 @@
+# Kinoite
+
+## Set up
+
+```bash
+rpm-ostree upgrade
+rpm-ostree install fish distrobox alacritty rofi niri xwayland-satellite udiskie btop xdg-desktop-portal-gnome gnome-keyring podman-compose
+```
+
+## Set up dev container
+
+```bash
+distrobox create --name dev --image fedora:latest
+distrobox enter dev
+dnf copr enable iucar/cran
+dnf copr enable iucar/rstudio
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+dnf install git nvim R golang julia rstudio-desktop uv R-CoprManager pipx
+cargo install --locked tree-sitter-cli
+distrobox-export --bin /usr/bin/git
+distrobox-export --bin /usr/bin/nvim
+distrobox-export --bin /usr/bin/R
+distrobox-export --bin /usr/bin/julia
+distrobox-export --bin /usr/bin/uv
+distrobox-export --bin /usr/bin/pipx
+distrobox-export --app rstudio
+exit
+```
+
+## Set up utils container
+
+```bash
+distrobox create --name utils --image fedora:latest
+distrobox enter utils
+dnf copr enable lihaohong/yazi
+dnf copr enable dejan/lazygit
+dnf install lazygit yazi bat zathura task fzf chezmoi
+distrobox-export --bin /usr/bin/lazygit
+distrobox-export --bin /usr/bin/yazi
+distrobox-export --bin /usr/bin/bat
+distrobox-export --bin /usr/bin/zathura
+distrobox-export --app zathura
+distrobox-export --bin /usr/bin/task
+distrobox-export --bin /usr/bin/fzf
+distrobox-export --bin /usr/bin/chezmoi
+exit
+```
+
+## Set up GUIs
+
+```bash
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install --user flathub com.bitwarden.desktop com.spotify.Client org.zotero.Zotero org.ferdium.Ferdium app.zen_browser.zen com.calibre_ebook.calibre org.onlyoffice.desktopeditors org.mozilla.Thunderbird com.borgbase.Vorta io.github.pwr_solaar.solaar it.mijorus.gearlever com.valvesoftware.Steam -y
+```
+
+## Get AppImages
+
+```bash
+cd ~/Downloads
+wget https://github.com/TibixDev/winboat/releases/download/v0.9.0/winboat-0.9.0-x86_64.AppImage
+wget http://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.AppImage
+```
+Then use gearlever to integrate
+
+## Start setting up home
+
+```bash
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Noto.zip
+7z e -y Noto.zip -ofonts/
+chezmoi init https://github.com/contreraskallens/dotfiles.git
+pipx install konsave
+konsave -i ~/.local/share/chezmoi/custom_kde.knsv
+```
