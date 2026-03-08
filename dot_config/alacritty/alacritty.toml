@@ -1,0 +1,11 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/everforest_dark_hard.toml"
+]
+[font]
+normal = { family = "NotoMono Nerd Font Mono", style = "Regular" }
+size = 13
+[selection]
+save_to_clipboard = true
+[terminal]
+shell = "/bin/fish"
