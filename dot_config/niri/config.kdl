@@ -223,9 +223,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // === Application Launchers ===
-    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open Terminal" { spawn "alacritty"; }
     Mod+Space hotkey-overlay-title="Application Launcher" {
-      spawn "vicinae" "toggle"
+      spawn "rofi" "-show" "combi" "-modes" "combi" "-combi-modes" "window,drun"
     }
 
 
@@ -237,7 +237,7 @@ binds {
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
     Mod+W { toggle-column-tabbed-display; }
     Mod+E {spawn "dolphin";}
-    Mod+Z  { spawn "firefox"; }
+    Mod+B  { spawn "firefox"; }
     // === Focus Navigation ===
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
