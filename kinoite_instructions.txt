@@ -4,7 +4,7 @@
 
 ```bash
 rpm-ostree upgrade
-rpm-ostree install fish distrobox alacritty rofi niri xwayland-satellite udiskie btop xdg-desktop-portal-gnome gnome-keyring podman-compose
+rpm-ostree install fish distrobox alacritty rofi niri xwayland-satellite udiskie btop xdg-desktop-portal-gnome gnome-keyring podman-compose ksshaskpass
 ```
 
 ## Set up dev container
