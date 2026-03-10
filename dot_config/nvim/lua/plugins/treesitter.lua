@@ -1,0 +1,41 @@
+return {
+	"nvim-treesitter/nvim-treesitter",
+	lazy = false,
+	opts = {
+		auto_install = true,
+		ensure_installed = {
+			"bash",
+			"go",
+			"html",
+			"hyprlang",
+			"jsdoc",
+			"json",
+			"julia",
+			"lua",
+			"luadoc",
+			"markdown",
+			"markdown_inline",
+			"nix",
+			"python",
+			"r",
+			"rnoweb",
+			"regex",
+			"rust",
+			"toml",
+			"typst",
+			"vim",
+			"vimdoc",
+			"xml",
+			"yaml",
+		},
+		highlight = {
+			enable = true,
+		},
+		indent = {
+			enable = true,
+		},
+		folds = {
+			enable = true,
+		},
+	},
+}

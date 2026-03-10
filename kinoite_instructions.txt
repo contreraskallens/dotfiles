@@ -50,7 +50,7 @@ exit
 
 ```bash
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install --user flathub com.bitwarden.desktop com.spotify.Client org.zotero.Zotero org.ferdium.Ferdium app.zen_browser.zen com.calibre_ebook.calibre org.onlyoffice.desktopeditors org.mozilla.Thunderbird com.borgbase.Vorta io.github.pwr_solaar.solaar it.mijorus.gearlever com.valvesoftware.Steam -y
+flatpak install --user flathub com.bitwarden.desktop com.spotify.Client org.zotero.Zotero org.ferdium.Ferdium app.zen_browser.zen com.calibre_ebook.calibre org.onlyoffice.desktopeditors org.mozilla.Thunderbird com.borgbase.Vorta it.mijorus.gearlever com.valvesoftware.Steam us.zoom.Zoom -y
 ```
 
 ## Get AppImages
