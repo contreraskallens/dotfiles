@@ -4,45 +4,68 @@
 
 ```bash
 rpm-ostree upgrade
-rpm-ostree install fish distrobox alacritty rofi niri xwayland-satellite udiskie btop xdg-desktop-portal-gnome gnome-keyring podman-compose ksshaskpass
+rpm-ostree install alacritty niri xwayland-satellite ksshaskpass
+```
+
+## Install homebrew
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
+brew install fish distrobox rofi btop podman-compose nvim pipx lazygit yazi bat task fzf chezmoi
+
 ```
 
 ## Set up dev container
 
 ```bash
-distrobox create --name dev --image fedora:latest
+distrobox create --name dev
 distrobox enter dev
 dnf copr enable iucar/cran
 dnf copr enable iucar/rstudio
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-dnf install git nvim R golang julia rstudio-desktop uv R-CoprManager pipx
+dnf install R golang julia rstudio-desktop uv R-CoprManager
 cargo install --locked tree-sitter-cli
-distrobox-export --bin /usr/bin/git
-distrobox-export --bin /usr/bin/nvim
 distrobox-export --bin /usr/bin/R
 distrobox-export --bin /usr/bin/julia
+distrobox-export --bin /usr/bin/go
 distrobox-export --bin /usr/bin/uv
-distrobox-export --bin /usr/bin/pipx
 distrobox-export --app rstudio
+
 exit
 ```
 
 ## Set up utils container
 
 ```bash
-distrobox create --name utils --image fedora:latest
+distrobox create --name utils
 distrobox enter utils
-dnf copr enable lihaohong/yazi
-dnf copr enable dejan/lazygit
-dnf install lazygit yazi bat zathura task fzf chezmoi
-distrobox-export --bin /usr/bin/lazygit
-distrobox-export --bin /usr/bin/yazi
-distrobox-export --bin /usr/bin/bat
+
+dnf install zathura
 distrobox-export --bin /usr/bin/zathura
 distrobox-export --app zathura
-distrobox-export --bin /usr/bin/task
-distrobox-export --bin /usr/bin/fzf
-distrobox-export --bin /usr/bin/chezmoi
+exit
+```
+
+## Install Noctalia
+
+```
+distrobox enter utils
+sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+sudo dnf install noctalia-shell
+sudo tee /usr/bin/nmcli << 'EOF'
+#!/bin/bash
+distrobox-host-exec nmcli "$@"
+EOF
+sudo chmod +x /usr/bin/nmcli
+
+sudo tee /usr/bin/niri << 'EOF'
+#!/bin/bash
+distrobox-host-exec niri "$@"
+EOF
+sudo chmod +x /usr/bin/niri
+
+distrobox-export /usr/bin/qs
 exit
 ```
 

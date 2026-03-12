@@ -110,17 +110,18 @@ overview {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "qs" "-c" "noctalia-shell"
 // spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
-spawn-at-startup "dms" "run"
+spawn-at-startup "env" "DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/host/var/run/dbus/system_bus_socket" "XDG_DATA_DIRS=/run/host/usr/share:$XDG_DATA_DIRS" "qs" "-c" "noctalia-shell"
+// spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "udiskie"
 spawn-at-startup "niri" "msg" "action" "focus-workspace" "5"
 spawn-at-startup "sh" "-c" "sleep 3 && GDK_BACKEND=x11 /usr/bin/@filendesktop"
 
 environment {
   XDG_CURRENT_DESKTOP "niri"
-  // QT_QPA_PLATFORM "wayland"
-  // ELECTRON_OZONE_PLATFORM_HINT "auto"
-  // QT_QPA_PLATFORMTHEME "gtk3"
-  TERMINAL "kitty"
+  QT_QPA_PLATFORM "wayland"
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  TERMINAL "alacritty"
 }
 hotkey-overlay {
     skip-at-startup
@@ -198,6 +199,7 @@ window-rule{
 }
 window-rule{
 	match app-id="kitty"
+	match app-id="Alacritty"
 	open-on-workspace "dev"
 	open-maximized true
 }
@@ -371,17 +373,17 @@ binds {
     // Noctalia
     
     // Audio controls
-    XF86AudioRaiseVolume { spawn "dms" "ipc" "audio" "increment" "5"; }
-    XF86AudioLowerVolume { spawn "dms" "ipc" "audio" "decrement" "5"; }
-    XF86AudioMute { spawn "dms" "ipc" "audio" "mute";}
+    XF86AudioRaiseVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase";}
+    XF86AudioLowerVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease";}
+    XF86AudioMute { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput";}
 
     // Brightness controls
-    XF86MonBrightnessUp { spawn "dms" "ipc" "brightness" "increment" "5";}
-    XF86MonBrightnessDown { spawn "dms" "ipc" "brightness" "decrement" "5";}
+    XF86MonBrightnessUp { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase";}
+    XF86MonBrightnessDown { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease";}
  
     // Utility shortcuts
     Mod+V { spawn "dms" "ipc" "clipboard" "toggle";}
     // Mod+L { spawn "dms" "ipc" "lock" "lock"; }
 
 }
-
+include "./noctalia.kdl"
