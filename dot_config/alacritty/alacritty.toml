@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/.config/alacritty/themes/tokyonight_night.toml"
+    "~/.config/alacritty/themes/noctalia.toml"
 ]
 [font]
 normal = { family = "NotoMono Nerd Font Mono", style = "Regular" }

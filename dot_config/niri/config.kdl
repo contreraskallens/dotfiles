@@ -103,15 +103,9 @@ overview {
         on
     }
 }
-// Add lines like this to spawn processes at startup.
-// Note that running niri as a session supports xdg-desktop-autostart,
-// which may be more convenient to use.
-// See the binds section below for more spawn examples.
-// This line starts waybar, a commonly used bar for Wayland compositors.
-// spawn-at-startup "qs" "-c" "noctalia-shell"
-// spawn-at-startup "/usr/lib/mate-polkit/polkit-mate-authentication-agent-1"
+
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
 spawn-at-startup "env" "DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/host/var/run/dbus/system_bus_socket" "XDG_DATA_DIRS=/run/host/usr/share:$XDG_DATA_DIRS" "qs" "-c" "noctalia-shell"
-// spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "udiskie"
 spawn-at-startup "niri" "msg" "action" "focus-workspace" "5"
 spawn-at-startup "sh" "-c" "sleep 3 && GDK_BACKEND=x11 /usr/bin/@filendesktop"
@@ -122,6 +116,7 @@ environment {
   ELECTRON_OZONE_PLATFORM_HINT "auto"
   QT_QPA_PLATFORMTHEME "gtk3"
   TERMINAL "alacritty"
+  // XDG_SESSION_TYPE "wayland"
 }
 hotkey-overlay {
     skip-at-startup
@@ -182,6 +177,7 @@ window-rule {
     match app-id=r#"kcalc"#
     match app-id=r#"Bitwarden"#
     match app-id=r#"dolphin"#
+    match app-id=r#"org.freedesktop.impl.portal.desktop.kde"#
     open-floating true
 }
 window-rule {
