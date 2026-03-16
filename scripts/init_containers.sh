@@ -1,4 +1,7 @@
 #!bin/bash
+distrobox create dev
+distrobox create utils
+
 distrobox enter dev -- /bin/sh -e <<'EOF'
 sudo dnf copr enable -y iucar/cran
 sudo dnf copr enable -y iucar/rstudio
