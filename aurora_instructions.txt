@@ -3,7 +3,7 @@
 ## Set up
 
 ```bash
-rpm-ostree upgrade
+ujust update
 rpm-ostree install alacritty niri xwayland-satellite
 ```
 
