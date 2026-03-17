@@ -49,5 +49,6 @@ Then use gearlever to integrate
 pipx install konsave
 konsave -i ~/.local/share/chezmoi/custom_kde.knsv
 brew install font-monaspice-nerd-font font-noto-nerd-font font-roboto-mono-nerd-font
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Valkyrie00/bold-brew/main/install.sh)"
 curl -fsSL https://vicinae.com/install.sh | bash
 ```
