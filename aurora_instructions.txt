@@ -24,7 +24,7 @@ sh ~/.local/share/chezmoi/scripts/init_containers.sh
 # Install Noctalia
 
 ```bash
-sudo wget https://copr.fedorainfracloud.org(rpm -E %fedora)/zhangyi6324-noctalia-shell-fedora-$(rpm -E %fedora).repo -P /etc/yum.repos.d/
+sudo dnf5 copr enable zhangyi6324/noctalia-shell
 rpm-ostree install noctalia-shell
 ```
 
