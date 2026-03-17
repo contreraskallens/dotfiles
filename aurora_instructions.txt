@@ -1,0 +1,53 @@
+# Aurora
+
+## Set up
+
+```bash
+rpm-ostree upgrade
+rpm-ostree install alacritty niri xwayland-satellite
+```
+
+# CLI install
+
+```bash
+brew install atuin bat btop bzip2 7zz cava chafa chezmoi distrobox eza fd fzf gcc lazygit neovim pipx podman-compose task tree-sitter tree-sitter-cli yazi
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+chezmoi init https://github.com/contreraskallens/dotfiles.git
+```
+
+# Set up containers
+
+```bash
+sh ~/.local/share/chezmoi/scripts/init_containers.sh
+```
+
+# Install Noctalia
+
+```bash
+sudo wget https://copr.fedorainfracloud.org(rpm -E %fedora)/zhangyi6324-noctalia-shell-fedora-$(rpm -E %fedora).repo -P /etc/yum.repos.d/
+rpm-ostree install noctalia-shell
+```
+
+# Set up GUIs
+
+```bash
+flatpak install flathub -y com.bitwarden.desktop com.spotify.Client org.zotero.Zotero org.ferdium.Ferdium app.zen_browser.zen com.calibre_ebook.calibre org.onlyoffice.desktopeditors org.mozilla.Thunderbird com.borgbase.Vorta it.mijorus.gearlever com.valvesoftware.Steam us.zoom.Zoom com.rtosta.zapzap org.kde.merkuro org.telegram.desktop
+```
+
+# Get AppImages
+
+```bash
+cd ~/Downloads
+wget https://github.com/TibixDev/winboat/releases/download/v0.9.0/winboat-0.9.0-x86_64.AppImage
+wget http://cdn.filen.io/@filen/desktop/release/latest/Filen_linux_x86_64.AppImage
+```
+Then use gearlever to integrate
+
+# Start setting up home
+
+```bash
+pipx install konsave
+konsave -i ~/.local/share/chezmoi/custom_kde.knsv
+brew install font-monaspice-nerd-font font-noto-nerd-font font-robot-mono-nerd-font
+curl -fsSL https://vicinae.com/install.sh | bash
+```

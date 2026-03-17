@@ -15,12 +15,7 @@ distrobox-export --app rstudio
 EOF
 
 distrobox enter utils -- /bin/sh -e <<'EOF'
-sudo dnf config-manager addrepo -y --from-repofile=https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
-sudo dnf install -y zathura rofi fuse fuse-libs noctalia-shell
-echo -e '#!/bin/bash\nexec distrobox-host-exec niri \"$@\"' | sudo tee /usr/bin/niri > /dev/null
-echo -e '#!/bin/bash\nexec distrobox-host-exec nmcli \"$@\"' | sudo tee /usr/bin/nmcli > /dev/null
+sudo dnf install -y zathura
 distrobox-export --bin /usr/bin/zathura
-distrobox-export --bin /usr/bin/qs
-distrobox-export --bin /usr/bin/rofi
 distrobox-export --app zathura
 EOF
