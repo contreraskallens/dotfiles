@@ -12,7 +12,7 @@ rpm-ostree install alacritty niri xwayland-satellite
 ```bash
 brew install atuin bat btop bzip2 cava chafa chezmoi distrobox eza fd fzf gcc lazygit neovim pipx podman-compose sevenzip task tree-sitter tree-sitter-cli yazi
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-chezmoi init https://github.com/contreraskallens/dotfiles.git
+chezmoi init git@github.com:contreraskallens/dotfiles.git
 ```
 
 # Set up containers
