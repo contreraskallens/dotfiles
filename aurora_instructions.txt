@@ -48,6 +48,6 @@ Then use gearlever to integrate
 ```bash
 pipx install konsave
 konsave -i ~/.local/share/chezmoi/custom_kde.knsv
-brew install font-monaspice-nerd-font font-noto-nerd-font font-robot-mono-nerd-font
+brew install font-monaspice-nerd-font font-noto-nerd-font font-roboto-mono-nerd-font
 curl -fsSL https://vicinae.com/install.sh | bash
 ```
